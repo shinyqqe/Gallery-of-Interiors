@@ -36,6 +36,7 @@ html {
 h1 {
     font-size: 4rem;
     font-weight: 900;
+    line-height: 4rem;
 }
 
 h2 {
@@ -61,7 +62,6 @@ p {
     backdrop-filter: blur(20px);
     background: rgba(255, 255, 255, 0.29);
     color: rgba(255, 255, 255, 0.84);
-    line-height: 4rem;
     text-align: center;
     padding: 82px 138px;
 }
@@ -179,6 +179,7 @@ p {
 
     h1 {
         font-size: 3.125rem;
+        line-height: 3.125rem;
     }
 
     h2 {
@@ -249,7 +250,53 @@ p {
     }
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1024px) and (orientation: portrait) {
+    .gallery {
+        flex-direction: column;
+        max-width: 600px;
+    }
+
+    .gallery-left,
+    .gallery-right {
+        width: 100%;
+    }
+
+    .gallery-right {
+        margin-left: 0;
+    }
+
+    .header-content {
+        padding: 25px 85px 25px 12px;
+        text-align: left;
+        left: 0;
+        transform: translate(0, -50%);
+    }
+}
+
+@media screen and (max-width:1024px) and (orientation: landscape) {
+    .header-content {
+        left: 0;
+        transform: translate(0, -50%);
+        padding: 27px 50px;
+    }
+
+    .gallery {
+        max-width: 678px;
+    }
+}
+
+@media screen and (max-width:667px) {
+    h1 {
+        font-size: 1.25rem;
+        line-height: 1.25rem;
+    }
+
+    .header-content {
+        padding: 29px 96px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
     .gallery {
         flex-direction: column;
         max-width: 600px;
@@ -265,14 +312,20 @@ p {
     }
 }
 
-@media screen and (max-width:1024px) and (orientation: landscape) {
-    .header-content {
-        left: 0;
-        transform: translate(0, -50%);
-        padding: 27px 50px;
+@media screen and (max-width:667px) and (orientation: portrait) {
+    .gallery {
+        max-width: 330px;
     }
 
-    .gallery {
-        max-width: 678px;
+    .header-content {
+        top: 0;
+        left: auto;
+        right: 0;
+        transform: translate(0, 0);
+        height: 100%;
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+        padding: 167px 34px 0;
     }
+
 }
